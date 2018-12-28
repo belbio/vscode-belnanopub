@@ -4,6 +4,7 @@
     "description": "BEL Nanopub extension for VSCode",
     "version": "0.1.0",
     "publisher": "",
+    "icon": "icon.png",
     "engines": {
         "vscode": "^1.30.0"
     },

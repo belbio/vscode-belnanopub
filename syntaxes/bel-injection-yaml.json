@@ -1,32 +1,74 @@
 {
     "scopeName": "source.bel-injection-yaml",
-    "injectionSelector": "source.yaml",
+    "injectionSelector": "L:source.yaml",
     "patterns": [
         {
-            "include": "#citations"
+            "include": "#citation"
         },
         {
             "include": "#assertions"
         },
         {
             "include": "#annotations"
+        },
+        {
+            "include": "#metadata"
+        },
+        {
+            "include": "#nanopub"
+        },
+        {
+            "include": "#evidence"
         }
     ],
     "repository": {
-        "citations": {
-            "match": "citation",
-            "name": "keyword.bel.citation"
+        "citation": {
+            "begin": "(citation)(:)",
+            "end": "\n| ",
+            "beginCaptures": {
+                "1": { "name": "entity.name.function.bel.citation"},
+                "2": { "name": "punctuation.separator.key-value.mapping.yaml"}
+			}
         },
         "assertions": {
-            "match": "assertions",
-            "name": "entity.name.function.bel.assertion",
-            "settings": {
-                "foreground": "#FF0000"
-            }
+            "begin": "(assertions)(:)",
+            "end": "\n| ",
+            "beginCaptures": {
+                "1": { "name": "entity.name.function.bel.assertions"},
+                "2": { "name": "punctuation.separator.key-value.mapping.yaml"}
+			}
+        },
+        "evidence": {
+            "begin": "(evidence)(:)",
+            "end": "\n| |:|.",
+            "beginCaptures": {
+                "1": { "name": "entity.name.function.bel.evidence"},
+                "2": { "name": "punctuation.separator.key-value.mapping.yaml"}
+			}
         },
         "annotations": {
-            "match": "annotations",
-            "name": "entity.name.class.bel.annotation"
+            "begin": "(annotations)(:)",
+            "end": "\n| ",
+            "beginCaptures": {
+                "1": { "name": "entity.name.function.bel.annotations"},
+                "2": { "name": "punctuation.separator.key-value.mapping.yaml"}
+			}
+        },
+        "metadata": {
+            "begin": "(-) (metadata)",
+            "end": ":|\n| ",
+            "beginCaptures": {
+                "1": { "name": "punctuation.definition.block.sequence.item.yaml"},
+                "2": { "name": "entity.name.class.bel.metadata"}
+			}
+        },
+        "nanopub": {
+            "begin": "(-) (nanopub)",
+            "end": ":|\n| ",
+            "beginCaptures": {
+                "1": { "name": "punctuation.definition.block.sequence.item.yaml"},
+                "2": { "name": "entity.name.class.bel.nanopub"}
+			}
         }
     }
 }

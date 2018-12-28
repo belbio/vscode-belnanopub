@@ -3,30 +3,48 @@
     "injectionSelector": "L:source.json",
     "patterns": [
         {
-            "include": "#citations"
+            "include": "#citation"
         },
         {
             "include": "#assertions"
         },
         {
             "include": "#annotations"
+        },
+        {
+            "include": "#nanopub"
+        },
+        {
+            "include": "#metadata"
+        },
+        {
+            "include": "#evidence"
         }
     ],
     "repository": {
-        "citations": {
+        "citation": {
             "match": "\"citation\"",
-            "name": "keyword.bel.citation"
+            "name":"entity.name.function.bel.citation"
         },
         "assertions": {
             "match": "\"assertions\"",
-            "name": "entity.name.function.bel.assertion",
-            "settings": {
-                "foreground": "#FF0000"
-            }
+            "name":"entity.name.function.bel.assertions"
         },
         "annotations": {
             "match": "\"annotations\"",
-            "name": "entity.name.class.bel.annotation"
+            "name":"entity.name.function.bel.annotations"
+        },
+        "evidence": {
+            "match": "\"evidence\"",
+            "name":"entity.name.function.bel.evidence"
+        },
+        "nanopub": {
+            "match": "\"nanopub\"",
+            "name":"entity.name.class.bel.nanopub"
+        },
+        "metadata": {
+            "match": "\"metadata\"",
+            "name":"entity.name.class.bel.metadata"
         }
     }
 }
