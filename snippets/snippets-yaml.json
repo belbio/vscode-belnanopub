@@ -1,0 +1,79 @@
+{
+    "Start Document": {
+        "prefix": "!start",
+        "body": [
+            "- metadata:",
+            "    Name: ${1}",
+            "    Description: ${2}",
+            "    Version: '${3}'",
+            "    Copyright: ${4}",
+            "    Authors: ${5}",
+            "    Licenses: ${6}",
+            "    ContactInfo: ${7}",
+            "    annotation:",
+            "      TextLocation:",
+            "      - ${8}",
+            "- nanopub:",
+            "    schema_uri: ${9}",
+            "    type:",
+            "      name: ${10}",
+            "      version: ${11}",
+            "    annotations:",
+            "    citation:",
+            "    assertions:",
+            "    evidence: ${12}",
+            "    metadata:",
+            "      gd:creator: ${13}",
+            "      gd:published: ${14}",
+            "      project: ${15}"          
+        ]
+    },
+    "Start nanopub": {
+        "prefix": "!nano",
+        "body": [
+            "- nanopub:",
+            "    schema_uri: ${1}",
+            "    type:",
+            "      name: ${2}",
+            "      version: ${3}",
+            "    annotations:",
+            "    citation:",
+            "    assertions:",
+            "    evidence: ${4}",
+            "    metadata:",
+            "      gd:creator: ${5}",
+            "      gd:published: ${6:false}",
+            "      project: ${7}"
+        ]
+    },
+    "Add Citation": {
+        "prefix": "!cite",
+        "body": [
+            "  authors:",
+            "  - ${1}",
+            "  database:",
+            "    name: ${2}",
+            "    id: '${3}'",
+            "  reference: ${4}",
+            "  title: ${5}",
+            "  source_name: ${6}",
+            "  date_published: '${7}'"
+        ]
+    },
+    "Add Assertion": {
+        "prefix": "!assert",
+        "body": [
+            "- subject: ${1}",
+            "  relation: ${2}",
+            "  object: ${3}"
+        ]
+    },
+    "Add Annotation": {
+        "prefix": "!anno",
+        "body": [
+            "- type: ${1}",
+            "  label: ${2}",
+            "  id: ${3}"
+        ]
+    }
+}

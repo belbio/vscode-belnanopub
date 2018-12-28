@@ -1,0 +1,99 @@
+{
+    "name": "belnanopub",
+    "displayName": "BEL Nanopub",
+    "description": "BEL Nanopub extension for VSCode",
+    "version": "0.1.0",
+    "publisher": "",
+    "engines": {
+        "vscode": "^1.30.0"
+    },
+    "categories": [
+        "Snippets"
+    ],
+    "activationEvents": [
+        "onCommand:extension.sayHello",
+        "*"
+    ],
+    "main": "./out/extension",
+    "contributes": {
+        "commands": [
+            {
+                "command": "extension.sayHello",
+                "title": "Hello World"
+            }
+        ],
+        "snippets": [
+            {
+                "language": "json",
+                "path": "./snippets/snippets-json.json"
+            },
+            {
+                "language": "yaml",
+                "path": "./snippets/snippets-yaml.json"
+            }
+        ],
+        "yamlValidation": [
+            {
+                "fileMatch": "*.yaml",
+                "url": "./schemas/nanopub_schema.json"
+            },
+            {
+                "fileMatch": "*.yml",
+                "url": "./schemas/nanopub_schema.json"
+            }
+        ],
+        "jsonValidation": [
+            {
+                "fileMatch": "*.json",
+                "url": "./schemas/nanopub_schema.json"
+            }
+        ],
+        "grammars": [
+            {
+                "path": "./syntaxes/bel-injection-json.json",
+                "scopeName": "source.bel-injection-json",
+                "injectTo": ["source.json"]
+            },
+            {
+                "path": "./syntaxes/bel-injection-yaml.json",
+                "scopeName": "source.bel-injection-yaml",
+                "injectTo": ["source.yaml"]
+            }
+        ],
+        "colors": [
+            {
+                "id": "keyword",
+                "description": "Test",
+                "defaults": {
+                    "dark": "#FF0000",
+                    "light": "#FF0000",
+                    "highContrast": "#FF0000"
+                }
+            }
+        ]
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "npm run compile && node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "typescript": "^3.1.4",
+        "vscode": "^1.1.25",
+        "tslint": "^5.8.0",
+        "@types/node": "^8.10.25",
+        "@types/mocha": "^2.2.42"
+    },
+    "extensionPack": [
+        "redhat.vscode-yaml"
+    ],
+    "extensionDependencies": [
+        "redhat.vscode-yaml"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/belbio/vscode-belnanopub"
+    }
+}

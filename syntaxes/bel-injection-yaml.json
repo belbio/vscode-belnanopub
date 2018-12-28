@@ -1,0 +1,32 @@
+{
+    "scopeName": "source.bel-injection-yaml",
+    "injectionSelector": "source.yaml",
+    "patterns": [
+        {
+            "include": "#citations"
+        },
+        {
+            "include": "#assertions"
+        },
+        {
+            "include": "#annotations"
+        }
+    ],
+    "repository": {
+        "citations": {
+            "match": "citation",
+            "name": "keyword.bel.citation"
+        },
+        "assertions": {
+            "match": "assertions",
+            "name": "entity.name.function.bel.assertion",
+            "settings": {
+                "foreground": "#FF0000"
+            }
+        },
+        "annotations": {
+            "match": "annotations",
+            "name": "entity.name.class.bel.annotation"
+        }
+    }
+}

@@ -1,0 +1,107 @@
+{
+    "Start Document": {
+        "prefix": "!start",
+        "body": [
+            "[",
+            "\t{",
+            "\t\t\"metadata\": {",
+            "\t\t\t\"Name\": \"${1}\",",
+            "\t\t\t\"Description\": \"${2}\",",
+            "\t\t\t\"Version\": \"${3}\",",
+            "\t\t\t\"Copyright\": \"${4}\",",
+            "\t\t\t\"Authors\": \"${5}\",",
+            "\t\t\t\"Licenses\": \"${6}\",",
+            "\t\t\t\"ContactInfo\": \"${7}\",",
+            "\t\t\t\"annotation\": {",
+            "\t\t\t\t\"TextLocation\": [",
+            "\t\t\t\t\t\"${8}\"",
+            "\t\t\t\t]",
+            "\t\t\t}",
+            "\t\t}",
+            "\t},",
+            "\t{",
+            "\t\t\"nanopub\": {",
+            "\t\t\t\"schema_uri\": \"${9}\",",
+            "\t\t\t\"type\": {",
+            "\t\t\t\t\"name\": \"${10}\",",
+            "\t\t\t\t\"version\": \"${11}\"",
+            "\t\t\t},",
+            "\t\t\t\"annotations\": [",
+            "\t\t\t],",
+            "\t\t\t\"citation\": {",
+            "\t\t\t},",
+            "\t\t\t\"assertions\": [",
+            "\t\t\t],",
+            "\t\t\t\"evidence\": \"${12}\",",
+            "\t\t\t\"metadata\": {",
+            "\t\t\t\t\"gd:creator\": \"${13}\",",
+            "\t\t\t\t\"gd:published\": ${14:false},",
+            "\t\t\t\t\"project\": \"${15}\"",
+            "\t\t\t}",
+            "\t\t}",
+            "\t}",
+            "]"                               
+        ]
+    },
+    "Start nanopub": {
+        "prefix": "!nano",
+        "body": [
+            "{",
+            "\t\"nanopub\": {",
+            "\t\t\"schema_uri\": \"${1}\",",
+            "\t\t\"type\": {",
+            "\t\t\t\"name\": \"${2}\",",
+            "\t\t\t\"version\": \"${3}\"",
+            "\t\t},",
+            "\t\t\"annotations\": [",
+            "\t\t],",
+            "\t\t\"citation\": {",
+            "\t\t},",
+            "\t\t\"assertions\": [",
+            "\t\t],",
+            "\t\t\"evidence\": \"${4}\",",
+            "\t\t\"metadata\": {",
+            "\t\t\t\"gd:creator\": \"${5}\",",
+            "\t\t\t\"gd:published\": ${6:false},",
+            "\t\t\t\"project\": \"${7}\"",
+            "\t\t}",
+            "\t}",
+            "}"                
+        ]
+    },
+    "Add Citation": {
+        "prefix": "!cite",
+        "body": [
+            "\"authors\": [",
+            "\t\"${1}\"",
+            "],",
+            "\"reference\": \"${2}\",",
+            "\"date_published\": \"${3}\",",
+            "\"source_name\": \"${4}\",",
+            "\"database\": {",
+            "\t\"name\": \"${5}\",",
+            "\t\"id\" : \"${6}\"",
+            "}"
+        ]
+    },
+    "Add Assertion": {
+        "prefix": "!assert",
+        "body": [
+            "{",
+            "    \"subject\": \"${1}\",",
+            "    \"relation\": \"${2}\",",
+            "    \"object\": \"${3}\"",
+            "}"                
+        ]
+    },
+    "Add Annotation": {
+        "prefix": "!anno",
+        "body": [
+            "{",
+            "    \"type\": \"${1}\",",
+            "    \"label\": \"${2}\",",
+            "    \"id\": \"${3}\"",
+            "}"
+        ]
+    }
+}
