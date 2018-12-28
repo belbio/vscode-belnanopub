@@ -40,7 +40,7 @@ If you need to login to the publisher:
 
 `vsce login (publisher name)`
 
-###Publishing extension
+### Publishing extension
 
 Run the command:
 `vsce publish`
