@@ -1,7 +1,7 @@
 # BEL Nanopub extension for VSCode
 Visual studio code extension for BEL Nanopubs
 
-![](https://lh5.googleusercontent.com/uEnq93rkLaBERHGeOC3A0gv9n0Q55YuHmEWOApxylZuK2WLfrCTSX9gBgO1HJ75xTA4YbPZACZMVpUFmULs5=w3360-h1880-rw)
+![](icon.png)
 
 ## Features
 
