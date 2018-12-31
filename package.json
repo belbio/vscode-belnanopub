@@ -2,8 +2,8 @@
     "name": "belnanopub",
     "displayName": "BEL Nanopub",
     "description": "BEL Nanopub extension for VSCode",
-    "version": "0.1.0",
-    "publisher": "",
+    "version": "0.2.0",
+    "publisher": "belbio",
     "icon": "icon.png",
     "engines": {
         "vscode": "^1.30.0"
@@ -12,15 +12,19 @@
         "Snippets"
     ],
     "activationEvents": [
-        "onCommand:extension.sayHello",
-        "*"
+        "onCommand:extension.convertToYAML",
+        "onCommand:extension.convertToJSON"
     ],
     "main": "./out/extension",
     "contributes": {
         "commands": [
             {
-                "command": "extension.sayHello",
-                "title": "Hello World"
+                "command": "extension.convertToYAML",
+                "title": "Convert to YAML"
+            },
+            {
+                "command": "extension.convertToJSON",
+                "title": "Convert to JSON"
             }
         ],
         "snippets": [
@@ -53,23 +57,16 @@
             {
                 "path": "./syntaxes/bel-injection-json.json",
                 "scopeName": "source.bel-injection-json",
-                "injectTo": ["source.json"]
+                "injectTo": [
+                    "source.json"
+                ]
             },
             {
                 "path": "./syntaxes/bel-injection-yaml.json",
                 "scopeName": "source.bel-injection-yaml",
-                "injectTo": ["source.yaml"]
-            }
-        ],
-        "colors": [
-            {
-                "id": "keyword",
-                "description": "Test",
-                "defaults": {
-                    "dark": "#FF0000",
-                    "light": "#FF0000",
-                    "highContrast": "#FF0000"
-                }
+                "injectTo": [
+                    "source.yaml"
+                ]
             }
         ]
     },
@@ -87,14 +84,15 @@
         "@types/node": "^8.10.25",
         "@types/mocha": "^2.2.42"
     },
-    "extensionPack": [
-        "redhat.vscode-yaml"
-    ],
     "extensionDependencies": [
         "redhat.vscode-yaml"
     ],
     "repository": {
         "type": "git",
         "url": "git+https://github.com/belbio/vscode-belnanopub"
+    },
+    "dependencies": {
+        "code": "^5.2.4",
+        "js-yaml": "^3.12.0"
     }
 }
