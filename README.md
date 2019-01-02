@@ -29,5 +29,12 @@ Commands provided are:
 
 **Note:** When converting from an *Untitled* document, the command will overwrite the current file instead of creating a new one.
 
+## FAQ
+1. What files will the JSONSchema validation be applied against?
+*Any JSON or YAML files which end in `nanopub` will be validated against the BEL Nanopub JSONSchema, ie. `*nanopub.json`, `*nanopub.yaml`, `*nanopub.yml`.*
+
+2. Where is the syntax highlighting feature applied?
+*Syntax highlighting will currently be applied to all JSON and YAML files regardless of file name.*
+
 ## Credits
 * Conversion between JSON and YAML based upon [openapi-lint](https://github.com/Mermade/openapi-lint-vscode)
