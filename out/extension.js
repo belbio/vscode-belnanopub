@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 const vscode = require("vscode");
+const yaml = require('js-yaml');
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 function activate(context) {
@@ -12,79 +13,51 @@ function activate(context) {
     // The command has been defined in the package.json file
     // Now provide the implementation of the command with  registerCommand
     // The commandId parameter must match the command field in package.json
-    let wordCounter = new WordCounter();
-    new WordCounterController(wordCounter);
-    let disposable = vscode.commands.registerCommand('extension.sayHello', () => {
-        // The code you place here will be executed every time your command is executed
-        // let editor = vscode.window.activeTextEditor;
-        // if (!editor) {
-        //     return; // No open text editor
-        // }
-        // let selection = editor.selection;
-        // let text = editor.document.getText(selection);
-        // // Display a message box to the user
-        // vscode.window.showInformationMessage('Selected characters: ' + text.length);
-        wordCounter.updateWordCount();
+    // let wordCounter = new WordCounter();
+    // new WordCounterController(wordCounter);
+    let convertToYAML = vscode.commands.registerCommand('extension.convertToYAML', () => {
+        convert(true);
     });
-    wordCounter.updateWordCount();
-    context.subscriptions.push(wordCounter);
-    context.subscriptions.push(disposable);
+    let convertToJSON = vscode.commands.registerCommand('extension.convertToJSON', () => {
+        convert(false);
+    });
+    context.subscriptions.push(convertToYAML);
+    context.subscriptions.push(convertToJSON);
 }
 exports.activate = activate;
+function convert(toYAML) {
+    var editor = vscode.window.activeTextEditor;
+    if (!editor) {
+        return;
+    }
+    let text = editor.document.getText();
+    try {
+        let obj = yaml.safeLoad(text, { json: true });
+        if (toYAML) {
+            vscode.workspace.openTextDocument({ language: 'yaml', content: yaml.safeDump(obj) })
+                .then(function (doc) {
+                vscode.window.showTextDocument(doc);
+            })
+                .then(function (ex) {
+                console.error(ex);
+            });
+        }
+        else {
+            vscode.workspace.openTextDocument({ language: 'json', content: JSON.stringify(obj, null, 4) })
+                .then(function (doc) {
+                vscode.window.showTextDocument(doc);
+            })
+                .then(function (ex) {
+                console.error(ex);
+            });
+        }
+    }
+    catch (exception) {
+        vscode.window.showErrorMessage("Error converting to yaml: " + exception.message);
+    }
+}
 // this method is called when your extension is deactivated
 function deactivate() {
 }
 exports.deactivate = deactivate;
-class WordCounter {
-    constructor() {
-        this._statusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left);
-    }
-    updateWordCount() {
-        let editor = vscode.window.activeTextEditor;
-        if (!editor) {
-            this._statusBarItem.hide();
-            return;
-        }
-        let doc = editor.document;
-        let wordCount = this._getWordCount(doc);
-        this._statusBarItem.text = wordCount !== 1 ? `${wordCount} Words` : '1 Word';
-        this._statusBarItem.show();
-        // if (doc.languageId === "markdown") {
-        //     let wordCount = this._getWordCount(doc);
-        //     this._statusBarItem.text = wordCount !== 1 ? `${wordCount} Words` : '1 Word';
-        //     this._statusBarItem.show();
-        // } else {
-        //     // this._statusBarItem.hide();
-        // }
-    }
-    _getWordCount(doc) {
-        let docContent = doc.getText();
-        docContent = docContent.replace(/(< ([^>]+)<)/g, '').replace(/\s+/g, ' ');
-        docContent = docContent.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
-        let wordCount = 0;
-        if (docContent !== "") {
-            wordCount = docContent.split(" ").length;
-        }
-        return wordCount;
-    }
-    dispose() {
-        this._statusBarItem.dispose();
-    }
-}
-class WordCounterController {
-    constructor(wordCounter) {
-        this._wordCounter = wordCounter;
-        let subscriptions = [];
-        vscode.window.onDidChangeTextEditorSelection(this._onEvent, this, subscriptions);
-        vscode.window.onDidChangeActiveTextEditor(this._onEvent, this, subscriptions);
-        this._wordCounter.updateWordCount();
-        this._disposable = vscode.Disposable.from(...subscriptions);
-    }
-    dispose() {
-        this._disposable.dispose();
-    }
-    _onEvent() {
-        this._wordCounter.updateWordCount();
-    }
-}
 //# sourceMappingURL=extension.js.map

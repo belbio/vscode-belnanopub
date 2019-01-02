@@ -25,6 +25,12 @@ You can also run the `publish` command with `major`, `minor`, and `patch`, or th
 
 Ex: `vsce publish minor` will increment from version 1.1.0 to 1.2.0.
 
+## Testing the extension locally
+Using the debugger will work great for typical testing (`F5`), but before publishing, I prefer to test the extension by creating a .**vsix** file and installing it locally. To package the extension, go to the directory of the extension through the command line and run `vsce package .`. This will create the .**vsix** file. Next, in VS Code open the extension tab on the left. There should be three dots on the first row.
+
+![](https://code.visualstudio.com/assets/docs/editor/extension-gallery/recommendations.png)
+
+Click it, and go to the option "Install from VSIX...". Now select the file. This will locally install your extension, which you can then use and test in your VS Code.
 
 ## Editing the extension
 #### Snippets
