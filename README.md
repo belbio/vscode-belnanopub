@@ -7,7 +7,7 @@ Visual studio code extension for BEL Nanopubs
 
 * Validation against the BEL Nanopub JSONSchema
 * Support for both JSON and YAML
-* Snippets 
+* Snippets
 * Syntax Highlighting
 * Commands for converting between JSON and YAML
 
@@ -33,7 +33,8 @@ Commands provided are:
 To install, search for this extension in the Extension Marketplace by going to the Extensions View (![](https://code.visualstudio.com/assets/docs/editor/extension-gallery/extensions-view-icon.png)) in VS Code searching for "BEL Nanopub".
 
 ## Usage
-* For files to be validated against the BEL Nanopub JSONSchema, the file must be in either JSON or YAML and the file name must end with `nanopub`, ie. `*nanopub.json`, `*nanopub.yaml`, `*nanopub.yml`.
+* For files to be validated against the BEL Nanopub JSONSchema, the file must be in either JSON or YAML and the file name must end with `nanopub` or `nanopubs` with a suffix of `json`, `yaml` or `yml`, ie. `*nanopubs.json`, `*nanopub.yaml`, ...
+
 * Syntax highlighting will currently be applied to all JSON and YAML files regardless of file name.
 * To use snippets, the current file must be in either JSON or YAML, so any files ending in `.json`, `.yaml` or `.yml` will have access to the snippets.
 

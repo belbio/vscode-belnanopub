@@ -49,11 +49,23 @@
             {
                 "fileMatch": "*nanopub.yml",
                 "url": "./schemas/nanopub_schema.json"
+            },
+            {
+                "fileMatch": "*nanopubs.yaml",
+                "url": "./schemas/nanopub_schema.json"
+            },
+            {
+                "fileMatch": "*nanopubs.yml",
+                "url": "./schemas/nanopub_schema.json"
             }
         ],
         "jsonValidation": [
             {
                 "fileMatch": "*nanopub.json",
+                "url": "./schemas/nanopub_schema.json"
+            },
+            {
+                "fileMatch": "*nanopubs.json",
                 "url": "./schemas/nanopub_schema.json"
             }
         ],
